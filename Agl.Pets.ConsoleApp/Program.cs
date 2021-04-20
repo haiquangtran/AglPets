@@ -1,14 +1,17 @@
-﻿using Agl.Pets.ConsoleApp.Cats;
+﻿using Agl.Pets.ConsoleApp.Pets;
 using Agl.Pets.ConsoleApp.Plumbing;
+using Agl.Pets.Domain.Pets;
 using Agl.Pets.Infrastructure.PetOwners;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace Agl.Pets.ConsoleApp
 {
+    [ExcludeFromCodeCoverage]
     class Program
     {
         static async Task Main(string[] args)
@@ -28,7 +31,8 @@ namespace Agl.Pets.ConsoleApp
 
             try
             {
-                Console.WriteLine("Loading cat pet owners...Please wait");
+                var animalType = AnimalTypes.Cat;
+                Console.WriteLine($"Loading {animalType} pet owners...Please wait");
 
                 using IServiceScope serviceScope = host.Services.CreateScope();
                 IServiceProvider provider = serviceScope.ServiceProvider;
@@ -38,7 +42,7 @@ namespace Agl.Pets.ConsoleApp
 
                 // Print Owners and Cats
 
-                CatPrinter.PrintOwnersAndCats(petOwners);
+                Console.WriteLine(PetPrinter.GetFormattedOwnersAndPetsText(animalType, petOwners));
             }
             catch (Exception ex)
             {
