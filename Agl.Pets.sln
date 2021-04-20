@@ -7,21 +7,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5BEDE96B-1AF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{484987E8-D500-444C-BAA4-5051A08CF8BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.Core", "Agl.Pets.Core\Agl.Pets.Core.csproj", "{91BF5AE5-058E-4ED3-AD17-343853B6DEC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.Core", "Agl.Pets.Core\Agl.Pets.Core.csproj", "{91BF5AE5-058E-4ED3-AD17-343853B6DEC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.Domain", "Agl.Pets.Domain\Agl.Pets.Domain.csproj", "{195073E4-E283-4E1D-8BCA-13F81E66F056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.Domain", "Agl.Pets.Domain\Agl.Pets.Domain.csproj", "{195073E4-E283-4E1D-8BCA-13F81E66F056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.Infrastructure", "Agl.Pets.Infrastructure\Agl.Pets.Infrastructure.csproj", "{C0742AE2-CA11-42BA-A8ED-9DB6F2D1F7EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.Infrastructure", "Agl.Pets.Infrastructure\Agl.Pets.Infrastructure.csproj", "{C0742AE2-CA11-42BA-A8ED-9DB6F2D1F7EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.ConsoleApp", "Agl.Pets.ConsoleApp\Agl.Pets.ConsoleApp.csproj", "{4F52BFEE-C403-4C0E-9ECE-31738BDF5ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.ConsoleApp.UnitTests", "Agl.Pets.ConsoleApp.UnitTests\Agl.Pets.ConsoleApp.UnitTests.csproj", "{6F43957F-DEA6-45F0-9EB3-4FF7AF667A8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.ConsoleApp.UnitTests", "Agl.Pets.ConsoleApp.UnitTests\Agl.Pets.ConsoleApp.UnitTests.csproj", "{6F43957F-DEA6-45F0-9EB3-4FF7AF667A8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.Core.UnitTests", "Agl.Pets.Core.UnitTests\Agl.Pets.Core.UnitTests.csproj", "{2755DD28-764D-45FF-9F37-E94E001DD7E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.Core.UnitTests", "Agl.Pets.Core.UnitTests\Agl.Pets.Core.UnitTests.csproj", "{2755DD28-764D-45FF-9F37-E94E001DD7E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.Domain.UnitTests", "Agl.Pets.Domain.UnitTests\Agl.Pets.Domain.UnitTests.csproj", "{7D7CA9FE-083A-423B-8253-017538EFAFBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.Domain.UnitTests", "Agl.Pets.Domain.UnitTests\Agl.Pets.Domain.UnitTests.csproj", "{7D7CA9FE-083A-423B-8253-017538EFAFBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.Infrastructure.UnitTests", "Agl.Pets.Infrastructure.UnitTests\Agl.Pets.Infrastructure.UnitTests.csproj", "{744A48EC-C585-4F81-931D-CF8893D8137B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.Infrastructure.UnitTests", "Agl.Pets.Infrastructure.UnitTests\Agl.Pets.Infrastructure.UnitTests.csproj", "{744A48EC-C585-4F81-931D-CF8893D8137B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agl.Pets.ConsoleApp", "Agl.Pets.ConsoleApp\Agl.Pets.ConsoleApp.csproj", "{4481A065-661C-4C4C-BCF2-23CBAAC35DDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agl.Pets.Core.Test", "Agl.Pets.Core.Test\Agl.Pets.Core.Test.csproj", "{A56B660D-8D5A-4A3D-9936-73D1D204FAD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +43,6 @@ Global
 		{C0742AE2-CA11-42BA-A8ED-9DB6F2D1F7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0742AE2-CA11-42BA-A8ED-9DB6F2D1F7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0742AE2-CA11-42BA-A8ED-9DB6F2D1F7EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F52BFEE-C403-4C0E-9ECE-31738BDF5ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F52BFEE-C403-4C0E-9ECE-31738BDF5ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F52BFEE-C403-4C0E-9ECE-31738BDF5ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F52BFEE-C403-4C0E-9ECE-31738BDF5ADE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F43957F-DEA6-45F0-9EB3-4FF7AF667A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F43957F-DEA6-45F0-9EB3-4FF7AF667A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F43957F-DEA6-45F0-9EB3-4FF7AF667A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +59,14 @@ Global
 		{744A48EC-C585-4F81-931D-CF8893D8137B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{744A48EC-C585-4F81-931D-CF8893D8137B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{744A48EC-C585-4F81-931D-CF8893D8137B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4481A065-661C-4C4C-BCF2-23CBAAC35DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4481A065-661C-4C4C-BCF2-23CBAAC35DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4481A065-661C-4C4C-BCF2-23CBAAC35DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4481A065-661C-4C4C-BCF2-23CBAAC35DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A56B660D-8D5A-4A3D-9936-73D1D204FAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56B660D-8D5A-4A3D-9936-73D1D204FAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56B660D-8D5A-4A3D-9936-73D1D204FAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56B660D-8D5A-4A3D-9936-73D1D204FAD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,11 +75,12 @@ Global
 		{91BF5AE5-058E-4ED3-AD17-343853B6DEC2} = {5BEDE96B-1AF6-484D-AD10-CE19280F8FEE}
 		{195073E4-E283-4E1D-8BCA-13F81E66F056} = {5BEDE96B-1AF6-484D-AD10-CE19280F8FEE}
 		{C0742AE2-CA11-42BA-A8ED-9DB6F2D1F7EC} = {5BEDE96B-1AF6-484D-AD10-CE19280F8FEE}
-		{4F52BFEE-C403-4C0E-9ECE-31738BDF5ADE} = {5BEDE96B-1AF6-484D-AD10-CE19280F8FEE}
 		{6F43957F-DEA6-45F0-9EB3-4FF7AF667A8F} = {484987E8-D500-444C-BAA4-5051A08CF8BD}
 		{2755DD28-764D-45FF-9F37-E94E001DD7E1} = {484987E8-D500-444C-BAA4-5051A08CF8BD}
 		{7D7CA9FE-083A-423B-8253-017538EFAFBE} = {484987E8-D500-444C-BAA4-5051A08CF8BD}
 		{744A48EC-C585-4F81-931D-CF8893D8137B} = {484987E8-D500-444C-BAA4-5051A08CF8BD}
+		{4481A065-661C-4C4C-BCF2-23CBAAC35DDF} = {5BEDE96B-1AF6-484D-AD10-CE19280F8FEE}
+		{A56B660D-8D5A-4A3D-9936-73D1D204FAD0} = {484987E8-D500-444C-BAA4-5051A08CF8BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {226434E1-760C-4C54-A8B8-37B4B2CE0EB9}
