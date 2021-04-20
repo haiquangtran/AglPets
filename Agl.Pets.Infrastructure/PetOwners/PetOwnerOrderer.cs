@@ -10,14 +10,14 @@ namespace Agl.Pets.ConsoleApp.PetOwners
     {
         /// <summary>
         /// 
-        /// List all the pets of a specific type in alphabetical order by the gender of their owners.
+        ///  List all the pets of a specific type in alphabetical order by the gender of their owners.
         /// 
         /// </summary>
         /// <param name="animalType">Specific type of pet to be filtered by</param>
-        /// <param name="petOwners"></param>
-        /// <param name="maleOwners"></param>
-        /// <param name="femaleOwners"></param>
-        /// <param name="otherOwners"></param>
+        /// <param name="petOwners">A list of all the pet owners to be filtered by</param>
+        /// <param name="maleOwners">A list containing pet names of the filtered pet that are owned by male owners</param>
+        /// <param name="femaleOwners">A list containing pet names of the filtered pet that are owned by female owners</param>
+        /// <param name="otherOwners">A list containing pet names of the filtered pet that are owned by "other" gender owners</param>
         public static void GetOrderedOwnersAndPets(string animalType, IList<PetOwner> petOwners, out List<Pet> maleOwners, out List<Pet> femaleOwners, out List<Pet> otherOwners)
         {
             GetOwnerGenderFilteredPets(animalType, petOwners, out maleOwners, out femaleOwners, out otherOwners);
