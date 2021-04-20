@@ -37,7 +37,7 @@ namespace Agl.Pets.ConsoleApp.Pets
 
             if (pets.Any())
             {
-                result.Append("\t");
+                result.Append('\t');
                 result.AppendJoin("\n\t", pets.Select(x => x.Name));
             }
             else

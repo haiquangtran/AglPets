@@ -2,16 +2,15 @@ using Agl.Pets.ConsoleApp.Pets;
 using Agl.Pets.Domain.PetOwners;
 using Agl.Pets.Domain.Pets;
 using Agl.Pets.Infrastructure.PetOwners;
-using System;
 using System.Collections.Generic;
 using Xunit;
 
 namespace Agl.Pets.ConsoleApp.UnitTests.Pets
 {
-    public class PetPrinterTests
+    public class PetPrinterGetFormattedOwnersAndPetsTextTests
     {
         [Fact]
-        public void PetPrinterTest_GetFormattedOwnersAndPetsText_ReturnsGenderHeadings()
+        public void ProgramPrintPetsTest_ShouldCallGetFormattedOwnersAndPetsText()
         {
             // Arrange
             var printer = CreatePetPrinter();
@@ -61,7 +60,7 @@ namespace Agl.Pets.ConsoleApp.UnitTests.Pets
             Assert.DoesNotContain("crocodile", test);
         }
 
-        public IPetPrinter CreatePetPrinter()
+        public static IPetPrinter CreatePetPrinter()
         {
             return new PetPrinter();
         }

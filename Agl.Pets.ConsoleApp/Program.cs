@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Agl.Pets.ConsoleApp
 {
     [ExcludeFromCodeCoverage]
-    class Program
+    public class Program
     {
         static async Task Main(string[] args)
         {
@@ -27,23 +27,23 @@ namespace Agl.Pets.ConsoleApp
 
             using IHost host = CreateHostBuilder(args, configuration).Build();
 
+            using IServiceScope serviceScope = host.Services.CreateScope();
+            IServiceProvider provider = serviceScope.ServiceProvider;
+
             // Print cats
 
-            await PrintPets(AnimalTypes.Cat, host);
+            await PrintPets(AnimalTypes.Cat, provider);
 
             await host.RunAsync();
         }
 
-        public static async Task PrintPets(string animalType, IHost host)
+        public static async Task PrintPets(string animalType, IServiceProvider provider)
         {
             try
             {
                 Console.WriteLine("\n");
                 Console.WriteLine($"Loading {animalType} pet owners...Please wait");
                 Console.WriteLine("\n");
-
-                using IServiceScope serviceScope = host.Services.CreateScope();
-                IServiceProvider provider = serviceScope.ServiceProvider;
 
                 IPetOwnerHttpClient petOwnerClient = provider.GetRequiredService<IPetOwnerHttpClient>();
                 IPetPrinter petPrinter = provider.GetRequiredService<IPetPrinter>();

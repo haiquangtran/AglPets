@@ -29,7 +29,7 @@ namespace Agl.Pets.ConsoleApp.Plumbing
 
         private static void AddServices(IServiceCollection services)
         {
-            services.AddTransient<IPetPrinter, PetPrinter>();
+            services.AddSingleton<IPetPrinter, PetPrinter>();
         }
     }
 }
