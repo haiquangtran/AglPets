@@ -33,7 +33,9 @@ namespace Agl.Pets.ConsoleApp
             {
                 var animalType = AnimalTypes.Cat;
 
+                Console.WriteLine("\n");
                 Console.WriteLine($"Loading {animalType} pet owners...Please wait");
+                Console.WriteLine("\n");
 
                 using IServiceScope serviceScope = host.Services.CreateScope();
                 IServiceProvider provider = serviceScope.ServiceProvider;

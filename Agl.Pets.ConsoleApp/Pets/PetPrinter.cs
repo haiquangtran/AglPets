@@ -20,9 +20,13 @@ namespace Agl.Pets.ConsoleApp.Pets
 
             var result = new StringBuilder();
 
-            PetPrinter.FormatPetPrint("Male", maleOwnerOfCats, result);
-            PetPrinter.FormatPetPrint("Female", femaleOwnerOfCats, result);
-            PetPrinter.FormatPetPrint("Other", otherOwnerOfCats, result);
+            result.AppendLine();
+
+            FormatPetPrint("Male", maleOwnerOfCats, result);
+            FormatPetPrint("Female", femaleOwnerOfCats, result);
+            FormatPetPrint("Other", otherOwnerOfCats, result);
+
+            result.AppendLine();
 
             // Return formatted result
 
