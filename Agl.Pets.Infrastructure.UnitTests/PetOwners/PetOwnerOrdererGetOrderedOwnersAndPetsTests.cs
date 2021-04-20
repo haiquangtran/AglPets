@@ -54,7 +54,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
             Assert.Equal("a", femalePets[0].Name);
             Assert.Equal("b", femalePets[1].Name);
 
-            Assert.Equal("a", otherPets[0].Name);
+            Assert.Equal("other", otherPets[0].Name);
         }
 
         private static List<PetOwner> GetPetOwnerData()
@@ -116,7 +116,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
                     Pets = new Pet[] {
                         new Pet
                         {
-                            Name = "b",
+                            Name = "other",
                             Type = AnimalTypes.Cat
                         },
                         new Pet
