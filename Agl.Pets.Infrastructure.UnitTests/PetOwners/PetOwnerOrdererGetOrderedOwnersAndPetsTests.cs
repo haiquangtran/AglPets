@@ -29,23 +29,26 @@ namespace Agl.Pets.Infrastructure.UnitTests
             Assert.Empty(otherPets);
         }
 
-        [Fact]
-        public void GetOrderedOwnersAndPetsTest_GroupedByOwnerGender_ReturnsOrderedCats()
+        [Theory]
+        [InlineData(AnimalTypes.Cat)]
+        [InlineData(AnimalTypes.Dog)]
+        [InlineData(AnimalTypes.Fish)]
+        public void GetOrderedOwnersAndPetsTest_GroupedByOwnerGender_ReturnsOrderedCats(string animalType)
         {
             // Arrange
 
-            List<PetOwner> petOwners = GetPetOwnerData();
+            List<PetOwner> petOwners = GetPetOwnerData(animalType);
 
             // Act
 
-            PetOwnerOrderer.GetOrderedOwnersAndPets(AnimalTypes.Cat, petOwners, out List<Pet> malePets, out List<Pet> femalePets, out List<Pet> otherPets);
+            PetOwnerOrderer.GetOrderedOwnersAndPets(animalType, petOwners, out List<Pet> malePets, out List<Pet> femalePets, out List<Pet> otherPets);
 
             // Assert
 
             Assert.True(
-                malePets.All(x => x.Type == AnimalTypes.Cat)
-                && femalePets.All(x => x.Type == AnimalTypes.Cat)
-                && otherPets.All(x => x.Type == AnimalTypes.Cat));
+                malePets.All(x => x.Type == animalType)
+                && femalePets.All(x => x.Type == animalType)
+                && otherPets.All(x => x.Type == animalType));
 
             Assert.Equal("a", malePets[0].Name);
             Assert.Equal("b", malePets[1].Name);
@@ -57,7 +60,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
             Assert.Equal("other", otherPets[0].Name);
         }
 
-        private static List<PetOwner> GetPetOwnerData()
+        private static List<PetOwner> GetPetOwnerData(string animalType = AnimalTypes.Cat)
         {
             return new List<PetOwner>
             {
@@ -67,12 +70,12 @@ namespace Agl.Pets.Infrastructure.UnitTests
                         new Pet
                         {
                             Name = "b",
-                            Type = AnimalTypes.Cat
+                            Type = animalType
                         },
                         new Pet
                         {
                             Name = "a",
-                            Type = AnimalTypes.Cat
+                            Type = animalType
                         },
                         new Pet
                         {
@@ -87,7 +90,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
                         new Pet
                         {
                             Name = "c",
-                            Type = AnimalTypes.Cat
+                            Type = animalType
                         }
                     },
                 },
@@ -97,17 +100,17 @@ namespace Agl.Pets.Infrastructure.UnitTests
                         new Pet
                         {
                             Name = "b",
-                            Type = AnimalTypes.Cat
+                            Type = animalType
                         },
                         new Pet
                         {
                             Name = "a",
-                            Type = AnimalTypes.Cat
+                            Type = animalType
                         },
                         new Pet
                         {
-                            Name = "dog",
-                            Type = "dog"
+                            Name = "chicken",
+                            Type = "chicken"
                         },
                     },
                 },
@@ -117,7 +120,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
                         new Pet
                         {
                             Name = "other",
-                            Type = AnimalTypes.Cat
+                            Type = animalType
                         },
                         new Pet
                         {
