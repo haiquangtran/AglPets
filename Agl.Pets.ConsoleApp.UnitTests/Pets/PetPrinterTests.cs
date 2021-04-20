@@ -13,8 +13,11 @@ namespace Agl.Pets.ConsoleApp.UnitTests.Pets
         [Fact]
         public void PetPrinterTest_GetFormattedOwnersAndPetsText_ReturnsGenderHeadings()
         {
+            // Arrange
+            var printer = CreatePetPrinter();
+
             // Act
-            var test = PetPrinter.GetFormattedOwnersAndPetsText(AnimalTypes.Cat, new List<PetOwner>());
+            var test = printer.GetFormattedOwnersAndPetsText(AnimalTypes.Cat, new List<PetOwner>());
 
             // Assert
             Assert.Contains("Male", test);
@@ -46,15 +49,21 @@ namespace Agl.Pets.ConsoleApp.UnitTests.Pets
                     }
                 }
             };
+            var printer = CreatePetPrinter();
 
             // Act
-            var test = PetPrinter.GetFormattedOwnersAndPetsText(AnimalTypes.Cat, petOwners);
+            var test = printer.GetFormattedOwnersAndPetsText(AnimalTypes.Cat, petOwners);
 
             // Assert
             Assert.Contains("cat-a", test);
             Assert.Contains("cat-b", test);
             Assert.Contains("cat-b", test);
             Assert.DoesNotContain("crocodile", test);
+        }
+
+        public IPetPrinter CreatePetPrinter()
+        {
+            return new PetPrinter();
         }
     }
 }

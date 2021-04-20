@@ -1,15 +1,9 @@
-﻿using Agl.Pets.Core.Api;
+﻿using Agl.Pets.ConsoleApp.Pets;
 using Agl.Pets.Infrastructure.PetOwners;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Agl.Pets.ConsoleApp.Plumbing
 {
@@ -26,7 +20,16 @@ namespace Agl.Pets.ConsoleApp.Plumbing
 
             services.AddPetOwnerApi(configuration.GetSection("PetOwner"));
 
+            // Add services
+
+            AddServices(services);
+
             return services;
+        }
+
+        private static void AddServices(IServiceCollection services)
+        {
+            services.AddTransient<IPetPrinter, PetPrinter>();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Agl.Pets.ConsoleApp
         static async Task Main(string[] args)
         {
             // Enable App settings and configuration
-            
+
             var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             IConfiguration configuration = new ConfigurationBuilder()
               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -29,23 +29,30 @@ namespace Agl.Pets.ConsoleApp
 
             // Print cats
 
+            await PrintPets(AnimalTypes.Cat, host);
+
+            await host.RunAsync();
+        }
+
+        public static async Task PrintPets(string animalType, IHost host)
+        {
             try
             {
-                var animalType = AnimalTypes.Cat;
-
                 Console.WriteLine("\n");
                 Console.WriteLine($"Loading {animalType} pet owners...Please wait");
                 Console.WriteLine("\n");
 
                 using IServiceScope serviceScope = host.Services.CreateScope();
                 IServiceProvider provider = serviceScope.ServiceProvider;
+
                 IPetOwnerHttpClient petOwnerClient = provider.GetRequiredService<IPetOwnerHttpClient>();
+                IPetPrinter petPrinter = provider.GetRequiredService<IPetPrinter>();
 
                 var petOwners = await petOwnerClient.GetPetOwners();
 
-                // Print Owners and Cats
+                // Print Owners and Pets
 
-                Console.WriteLine(PetPrinter.GetFormattedOwnersAndPetsText(animalType, petOwners));
+                Console.WriteLine(petPrinter.GetFormattedOwnersAndPetsText(animalType, petOwners));
             }
             catch (Exception ex)
             {
@@ -53,8 +60,6 @@ namespace Agl.Pets.ConsoleApp
 
                 throw;
             }
-
-            await host.RunAsync();
         }
 
         static IHostBuilder CreateHostBuilder(string[] args, IConfiguration configuration) => Host.CreateDefaultBuilder(args)

@@ -1,18 +1,15 @@
 ﻿using Agl.Pets.ConsoleApp.PetOwners;
-using Agl.Pets.Domain.Pets;
 using Agl.Pets.Infrastructure.PetOwners;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 
 namespace Agl.Pets.ConsoleApp.Pets
 {
-    [ExcludeFromCodeCoverage]
-    public static class PetPrinter
+    public class PetPrinter
+        : IPetPrinter
     {
-        public static string GetFormattedOwnersAndPetsText(string animalType, IList<PetOwner> petOwners)
+        public string GetFormattedOwnersAndPetsText(string animalType, IList<PetOwner> petOwners)
         {
             PetOwnerOrderer.GetOrderedOwnersAndPets(animalType, petOwners, out List<Pet> maleOwnerOfCats, out List<Pet> femaleOwnerOfCats, out List<Pet> otherOwnerOfCats);
 
