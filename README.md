@@ -34,6 +34,11 @@ The cats are under a heading of the gender of their owner and are in alphabetica
 - All done!
 - For more informaton see the following url: https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run?tabs=netcore22
 
+## Running tests with dotnet CLI
+- open command line, navigate to solution in AglPets/ folder
+- Run the unit tests typing in ``dotnet test`` in command line
+- For more informaton see the following url: https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test
+
 ## Assumptions
 - Any genders that are not "Male" or "Female" are assumed to be categorized in "Other"
 
