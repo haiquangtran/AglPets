@@ -1,4 +1,3 @@
-using Agl.Pets.ConsoleApp.PetOwners;
 using Agl.Pets.Core.Test.Api;
 using Agl.Pets.Domain.PetOwners;
 using Agl.Pets.Domain.Pets;

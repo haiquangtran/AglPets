@@ -1,10 +1,10 @@
-﻿using Agl.Pets.Infrastructure.PetOwners;
+﻿using Agl.Pets.Domain.Pets;
 using System.Collections.Generic;
 
 namespace Agl.Pets.ConsoleApp.Pets
 {
     public interface IPetPrinter
     {
-        public string PrintPetNamesByPetType(string animalType, IList<PetOwner> petOwners);
+        public string FormatPetNames(string genderGroup, IEnumerable<Pet> pets);
     }
 }

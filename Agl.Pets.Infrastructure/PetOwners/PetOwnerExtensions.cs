@@ -1,4 +1,5 @@
 ﻿using Agl.Pets.Core.Api;
+using Agl.Pets.Infrastructure.Pets;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -18,6 +19,8 @@ namespace Agl.Pets.Infrastructure.PetOwners
             services.AddTransient(p => p.GetRequiredService<IOptions<ApiOptions>>().Value);
 
             services.AddPetOwnersHttpClient<IPetOwnerHttpClient, PetOwnerHttpClient>(apiOptions);
+
+            services.AddTransient<ICatQueries, CatQueries>();
         }
 
         private static void AddPetOwnersHttpClient<TClient, TImplementation>(this IServiceCollection services

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Agl.Pets.Domain.Pets
+namespace Agl.Pets.Domain.PetOwners
 {
-    public static class AnimalTypes
+    public class Owner
     {
-        public const string Cat = "Cat";
+        public string Gender { get; set; }
     }
 }

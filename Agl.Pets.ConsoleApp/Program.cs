@@ -1,12 +1,12 @@
 ﻿using Agl.Pets.ConsoleApp.Pets;
 using Agl.Pets.ConsoleApp.Plumbing;
-using Agl.Pets.Domain.Pets;
-using Agl.Pets.Infrastructure.PetOwners;
+using Agl.Pets.Infrastructure.Pets;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Agl.Pets.ConsoleApp
@@ -32,29 +32,37 @@ namespace Agl.Pets.ConsoleApp
 
             // Print cats
 
-            await PrintPetNames(AnimalTypes.Cat, provider);
+            await PrintCats(provider);
 
             await host.RunAsync();
         }
 
-        public static async Task PrintPetNames(string animalType, IServiceProvider provider)
+        public static async Task PrintCats(IServiceProvider provider)
         {
             try
             {
                 Console.WriteLine("\n");
-                Console.WriteLine($"Loading {animalType} pet owners...Please wait");
+                Console.WriteLine($"Loading cat owners...Please wait");
                 Console.WriteLine("\n");
 
-                IPetOwnerHttpClient petOwnerClient = provider.GetRequiredService<IPetOwnerHttpClient>();
                 IPetPrinter petPrinter = provider.GetRequiredService<IPetPrinter>();
+                ICatQueries catQueries = provider.GetRequiredService<ICatQueries>();
+                ICatOrderer catOrderer = provider.GetRequiredService<ICatOrderer>();
 
-                // Get pet owners
+                // Get cat owners
 
-                var petOwners = await petOwnerClient.GetPetOwners();
+                var catOwners = await catQueries.GetCats();
+                var catsGroupedByOwnerGender = catOrderer.GetCatsGroupedByOwnerGender(catOwners);
 
-                // Print pet names
+                // Print cat names grouped by owner's gender
 
-                Console.WriteLine(petPrinter.PrintPetNamesByPetType(animalType, petOwners));
+                var catsByOwnerGender = new StringBuilder();
+                foreach (var owner in catsGroupedByOwnerGender)
+                {
+                    catsByOwnerGender.Append(petPrinter.FormatPetNames(owner.OwnerGender, owner.Cats));
+                }
+
+                Console.WriteLine(catsByOwnerGender.ToString());
             }
             catch (Exception ex)
             {

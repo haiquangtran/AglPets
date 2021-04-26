@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Agl.Pets.Domain.Pets
 {
-    public static class AnimalTypes
+    public class Cat
+        : Pet
     {
-        public const string Cat = "Cat";
     }
 }
