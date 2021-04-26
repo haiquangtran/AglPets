@@ -39,9 +39,5 @@ The cats are under a heading of the gender of their owner and are in alphabetica
 - Run the unit tests typing in ``dotnet test`` in command line
 - For more informaton see the following url: https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test
 
-## Assumptions
-- Any genders that are not "Male" or "Female" are assumed to be categorized in "Other"
-
 ## Extensions
 - Logging needs to be added to the solution, this can be added by using a Global exception handler.
-- Consider changing PetOwnerOrderer to be a service with an interface for mocking (unit testing) if needed.
