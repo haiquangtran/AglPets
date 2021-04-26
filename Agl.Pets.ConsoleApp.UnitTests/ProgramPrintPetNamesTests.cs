@@ -13,10 +13,10 @@ using Xunit;
 
 namespace Agl.Pets.ConsoleApp.UnitTests
 {
-    public class ProgramPrintPetsTests
+    public class ProgramPrintPetNamesTests
     {
         [Fact]
-        public async void PrintPetsTest_ShouldCallPetPrinterGetFormattedOwnersAndPetsText()
+        public async void PrintPetNamesTest_ShouldCallPrintPetNamesByPetType()
         {
             // Arrange
             var mockServiceProvider = Substitute.For<IServiceProvider>();
@@ -24,20 +24,20 @@ namespace Agl.Pets.ConsoleApp.UnitTests
             mockPetOwnerHttpClient.GetPetOwners().Returns(new List<PetOwner>());
 
             var mockPetPrinter = Substitute.For<IPetPrinter>();
-            mockPetPrinter.GetFormattedOwnersAndPetsText(Arg.Any<string>(), Arg.Any<List<PetOwner>>()).Returns("test");
+            mockPetPrinter.PrintPetNamesByPetType(Arg.Any<string>(), Arg.Any<List<PetOwner>>()).Returns("test");
 
             mockServiceProvider.GetService<IPetOwnerHttpClient>().Returns(mockPetOwnerHttpClient);
             mockServiceProvider.GetService<IPetPrinter>().Returns(mockPetPrinter);
 
             // Act
-            await Program.PrintPets(AnimalTypes.Cat, mockServiceProvider);
+            await Program.PrintPetNames(AnimalTypes.Cat, mockServiceProvider);
 
             // Assert
-            mockPetPrinter.Received().GetFormattedOwnersAndPetsText(AnimalTypes.Cat, Arg.Any<List<PetOwner>>());
+            mockPetPrinter.Received().PrintPetNamesByPetType(AnimalTypes.Cat, Arg.Any<List<PetOwner>>());
         }
 
         [Fact]
-        public async void PrintPetsTest_ShouldCallGetPetOwnersApi()
+        public async void PrintPetNamesTest_ShouldCallGetPetOwnersApi()
         {
             // Arrange
             var mockServiceProvider = Substitute.For<IServiceProvider>();
@@ -48,14 +48,14 @@ namespace Agl.Pets.ConsoleApp.UnitTests
             mockServiceProvider.GetService<IPetPrinter>().Returns(mockPetPrinter);
 
             // Act
-            await Program.PrintPets(AnimalTypes.Cat, mockServiceProvider);
+            await Program.PrintPetNames(AnimalTypes.Cat, mockServiceProvider);
 
             // Assert
             await mockPetOwnerHttpClient.Received().GetPetOwners();
         }
 
         [Fact]
-        public async void PrintPetsTest_ThrowsException()
+        public async void PrintPetNamesTest_ThrowsException()
         {
             // Arrange
             var mockServiceProvider = Substitute.For<IServiceProvider>();
@@ -67,7 +67,7 @@ namespace Agl.Pets.ConsoleApp.UnitTests
             mockServiceProvider.GetService<IPetPrinter>().Returns(mockPetPrinter);
 
             // Act
-            await Assert.ThrowsAsync<InvalidOperationException>(() => Program.PrintPets(AnimalTypes.Cat, mockServiceProvider));
+            await Assert.ThrowsAsync<InvalidOperationException>(() => Program.PrintPetNames(AnimalTypes.Cat, mockServiceProvider));
         }
     }
 }

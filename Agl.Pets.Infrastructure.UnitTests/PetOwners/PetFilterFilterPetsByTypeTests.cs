@@ -9,10 +9,10 @@ using Xunit;
 
 namespace Agl.Pets.Infrastructure.UnitTests
 {
-    public class PetOwnerOrdererGetOrderedOwnersAndPetsTests
+    public class PetFilterFilterPetsByTypeTests
     {
         [Fact]
-        public void GetOrderedOwnersAndPetsTest_ReturnsEmptyLists()
+        public void FilterPetsByTypeTest_ReturnsEmptyLists()
         {
             // Arrange
 
@@ -20,7 +20,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
 
             // Act
 
-            PetOwnerOrderer.GetOrderedOwnersAndPets(AnimalTypes.Cat, petOwners, out List<Pet> malePets, out List<Pet> femalePets, out List<Pet> otherPets);
+            PetFilter.FilterPetsByType(AnimalTypes.Cat, petOwners, out List<Pet> malePets, out List<Pet> femalePets, out List<Pet> otherPets);
 
             // Assert
 
@@ -33,7 +33,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
         [InlineData(AnimalTypes.Cat)]
         [InlineData(AnimalTypes.Dog)]
         [InlineData(AnimalTypes.Fish)]
-        public void GetOrderedOwnersAndPetsTest_GroupedByOwnerGender_ReturnsOrderedCats(string animalType)
+        public void FilterPetsByTypeTest_GroupedByOwnerGender_ReturnsOrderedCats(string animalType)
         {
             // Arrange
 
@@ -41,7 +41,7 @@ namespace Agl.Pets.Infrastructure.UnitTests
 
             // Act
 
-            PetOwnerOrderer.GetOrderedOwnersAndPets(animalType, petOwners, out List<Pet> malePets, out List<Pet> femalePets, out List<Pet> otherPets);
+            PetFilter.FilterPetsByType(animalType, petOwners, out List<Pet> malePets, out List<Pet> femalePets, out List<Pet> otherPets);
 
             // Assert
 

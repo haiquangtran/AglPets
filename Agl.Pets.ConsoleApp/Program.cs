@@ -32,12 +32,12 @@ namespace Agl.Pets.ConsoleApp
 
             // Print cats
 
-            await PrintPets(AnimalTypes.Cat, provider);
+            await PrintPetNames(AnimalTypes.Cat, provider);
 
             await host.RunAsync();
         }
 
-        public static async Task PrintPets(string animalType, IServiceProvider provider)
+        public static async Task PrintPetNames(string animalType, IServiceProvider provider)
         {
             try
             {
@@ -48,11 +48,13 @@ namespace Agl.Pets.ConsoleApp
                 IPetOwnerHttpClient petOwnerClient = provider.GetRequiredService<IPetOwnerHttpClient>();
                 IPetPrinter petPrinter = provider.GetRequiredService<IPetPrinter>();
 
+                // Get pet owners
+
                 var petOwners = await petOwnerClient.GetPetOwners();
 
-                // Print Owners and Pets
+                // Print pet names
 
-                Console.WriteLine(petPrinter.GetFormattedOwnersAndPetsText(animalType, petOwners));
+                Console.WriteLine(petPrinter.PrintPetNamesByPetType(animalType, petOwners));
             }
             catch (Exception ex)
             {

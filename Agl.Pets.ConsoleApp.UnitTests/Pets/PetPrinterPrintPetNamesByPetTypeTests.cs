@@ -7,16 +7,16 @@ using Xunit;
 
 namespace Agl.Pets.ConsoleApp.UnitTests.Pets
 {
-    public class PetPrinterGetFormattedOwnersAndPetsTextTests
+    public class PetPrinterPrintPetNamesByPetTypeTests
     {
         [Fact]
-        public void ProgramPrintPetsTest_ShouldCallGetFormattedOwnersAndPetsText()
+        public void PrintPetNamesByPetTypeTest_ShouldCallPrintPetNamesByPetType()
         {
             // Arrange
             var printer = CreatePetPrinter();
 
             // Act
-            var test = printer.GetFormattedOwnersAndPetsText(AnimalTypes.Cat, new List<PetOwner>());
+            var test = printer.PrintPetNamesByPetType(AnimalTypes.Cat, new List<PetOwner>());
 
             // Assert
             Assert.Contains("Male", test);
@@ -25,7 +25,7 @@ namespace Agl.Pets.ConsoleApp.UnitTests.Pets
         }
 
         [Fact]
-        public void PetPrinterTest_GetFormattedOwnersAndPetsText_ReturnsCatNamesOnly()
+        public void PrintPetNamesByPetTypeTest_ReturnsCatNamesOnly()
         {
             var petOwners = new List<PetOwner>()
             {
@@ -51,7 +51,7 @@ namespace Agl.Pets.ConsoleApp.UnitTests.Pets
             var printer = CreatePetPrinter();
 
             // Act
-            var test = printer.GetFormattedOwnersAndPetsText(AnimalTypes.Cat, petOwners);
+            var test = printer.PrintPetNamesByPetType(AnimalTypes.Cat, petOwners);
 
             // Assert
             Assert.Contains("cat-a", test);

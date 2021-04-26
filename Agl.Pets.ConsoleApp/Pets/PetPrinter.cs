@@ -9,9 +9,9 @@ namespace Agl.Pets.ConsoleApp.Pets
     public class PetPrinter
         : IPetPrinter
     {
-        public string GetFormattedOwnersAndPetsText(string animalType, IList<PetOwner> petOwners)
+        public string PrintPetNamesByPetType(string animalType, IList<PetOwner> petOwners)
         {
-            PetOwnerOrderer.GetOrderedOwnersAndPets(animalType, petOwners, out List<Pet> maleOwnerOfCats, out List<Pet> femaleOwnerOfCats, out List<Pet> otherOwnerOfCats);
+            PetFilter.FilterPetsByType(animalType, petOwners, out List<Pet> maleOwnerOfCats, out List<Pet> femaleOwnerOfCats, out List<Pet> otherOwnerOfCats);
 
             // Print results
 
@@ -19,9 +19,9 @@ namespace Agl.Pets.ConsoleApp.Pets
 
             result.AppendLine();
 
-            FormatPetPrint("Male", maleOwnerOfCats, result);
-            FormatPetPrint("Female", femaleOwnerOfCats, result);
-            FormatPetPrint("Other", otherOwnerOfCats, result);
+            FormatPetNamesByOwnerGender("Male", maleOwnerOfCats, result);
+            FormatPetNamesByOwnerGender("Female", femaleOwnerOfCats, result);
+            FormatPetNamesByOwnerGender("Other", otherOwnerOfCats, result);
 
             result.AppendLine();
 
@@ -30,7 +30,7 @@ namespace Agl.Pets.ConsoleApp.Pets
             return result.ToString();
         }
 
-        private static void FormatPetPrint(string genderGroup, List<Pet> pets, StringBuilder result)
+        private static void FormatPetNamesByOwnerGender(string genderGroup, List<Pet> pets, StringBuilder result)
         {
             result.AppendLine();
             result.AppendLine(genderGroup);

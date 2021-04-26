@@ -5,6 +5,6 @@ namespace Agl.Pets.ConsoleApp.Pets
 {
     public interface IPetPrinter
     {
-        public string GetFormattedOwnersAndPetsText(string animalType, IList<PetOwner> petOwners);
+        public string PrintPetNamesByPetType(string animalType, IList<PetOwner> petOwners);
     }
 }

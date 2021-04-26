@@ -13,6 +13,6 @@ namespace Agl.Pets.Infrastructure.PetOwners
         public string Name { get; set; }
         public string Gender { get; set; }
         public int Age { get; set; }
-        public Pet[] Pets { get; set; }
+        public IList<Pet> Pets { get; set; }
     }
 }
